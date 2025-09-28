@@ -50,6 +50,7 @@ def update_task(task_id:int,updated:schemas.TaskCreate, db:Session=Depends(get_d
     
     task.title=updated.title
     task.description=updated.description
+    task.completed=updated.completed
     db.commit()
     db.refresh(task)
     return task
